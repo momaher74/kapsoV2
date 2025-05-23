@@ -9,9 +9,12 @@ require('dotenv').config();
 connectDB();
 
 app.use(express.json());
-const chat = "";
+
 const auth = require("./features/auth/router/router")
+const chat = require("./features/chats/router/routes")
+
 app.use("/auth", auth)
+app.use("/chat", chat)
 app.get('/', (req, res) => res.send('Hello World!'));
 app.get('*', (req, res) => res.send('This route not found'));
 

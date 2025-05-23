@@ -47,17 +47,10 @@ module.exports.sendMessage = async (req, res) => {
 
         // Emit socket events
         const io = getSocketInstance();
-        io.to(conversationId.toString()).emit("new_message", {
+        io.emit(conversationId.toString(), {
             message: populatedMessage,
             conversationId,
         });
-
-        // Emit delivery status to sender
-        io.to(senderId).emit("message_delivered", {
-            messageId: newMessage._id,
-            deliveredAt: newMessage.deliveredAt,
-        });
-
         return res.status(200).json({
             message: "Message sent successfully",
             data: populatedMessage,
