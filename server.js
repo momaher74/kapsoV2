@@ -11,10 +11,14 @@ connectDB();
 app.use(express.json());
 
 const auth = require("./features/auth/router/router")
-const chat = require("./features/chats/router/routes")
+const chats = require("./features/chats/router/routes") 
+const posts = require("./features/posts/router/router")
 
 app.use("/auth", auth)
-app.use("/chat", chat)
+app.use("/chat", chats) 
+app.use("/post", posts)
+
+
 app.get('/', (req, res) => res.send('Hello World!'));
 app.get('*', (req, res) => res.send('This route not found'));
 
