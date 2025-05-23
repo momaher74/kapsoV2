@@ -1,6 +1,6 @@
 const { Conversation } = require("../models/conversation_model");
 const Message = require("../models/message_model");
-const { getSocketInstance } = require("../../socket");
+const { getSocketInstance } = require("../../../config/socket/socket");
 
 module.exports.createConversation = async (req, res) => {
   try {

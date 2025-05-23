@@ -1,6 +1,7 @@
-const Message = require("../../models/message_model");
-const Conversation = require("../../models/conversation_model");
-const { getSocketInstance } = require("../../socket");
+
+const {getSocketInstance} = require("../../../config/socket/socket");
+const {Conversation} = require("../models/conversation_model");
+const Message = require("../models/message_model");
 
 module.exports.sendMessage = async (req, res) => {
     const { senderId, receiverId, message, conversationId, media } = req.body;
