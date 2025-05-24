@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const User = require('../models/userModel');
 
-console.log('User Model:', User); // Debug to confirm User is a Mongoose model
+console.log('User Model:', User); // Debug to confirm User is a Mongoose models
 
 class UserService {
     async register(req, res) {
